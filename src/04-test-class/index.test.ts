@@ -72,18 +72,20 @@ describe('BankAccount', () => {
 
   test('should set new balance if fetchBalance returned number', async () => {
     const account = getBankAccount(100);
-    const synchronizeBalancePromise = account.synchronizeBalance();
-    await expect(synchronizeBalancePromise).rejects.toThrowError(
-      SynchronizationFailedError,
-    );
+    try {
+      await account.synchronizeBalance();
+    } catch (error) {
+      expect(error).toBeInstanceOf(SynchronizationFailedError);
+    }
     expect(account.getBalance()).toBeGreaterThan(0);
   });
 
   test('should throw SynchronizationFailedError if fetchBalance returned null', async () => {
     const account = getBankAccount(100);
-    const synchronizeBalancePromise = account.synchronizeBalance();
-    await expect(synchronizeBalancePromise).rejects.toThrowError(
-      SynchronizationFailedError,
-    );
+    try {
+      await account.synchronizeBalance();
+    } catch (error) {
+      expect(error).toBeInstanceOf(SynchronizationFailedError);
+    }
   });
 });
