@@ -6,7 +6,6 @@ describe('generateLinkedList', () => {
   test('should generate linked list from values 1', () => {
     const values = [1, 2, 3];
     const result = generateLinkedList(values);
-
     const expected = {
       value: 1,
       next: {
@@ -20,7 +19,6 @@ describe('generateLinkedList', () => {
         },
       },
     };
-
     expect(result).toStrictEqual(expected);
   });
 
@@ -28,7 +26,6 @@ describe('generateLinkedList', () => {
   test('should generate linked list from values 2', () => {
     const values = [2, 3, 4, 5, 6];
     const result = generateLinkedList(values);
-
     expect(result).toMatchSnapshot();
   });
 });
